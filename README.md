@@ -61,9 +61,9 @@ The processing workflow comprises the following steps:
 
 3. **Poly-G tail removal:** Use fastp to remove poly-G tails where required, based on the initial and post-Trimmomatic quality-control results. Fastp can also be used to remove specified overrepresented sequences where necessary. Run FastQC and MultiQC again to assess the final trimmed reads before mapping.
 
-4. **Read mapping:** Map the processed reads to the female *Philornis downsi* reference genome (GCA_019455685.1; Romine et al., 2022) using NextGenMap.
+4. **Read mapping:** Map the processed reads to the female *Philornis downsi* reference genome (GCA_019455685.1; Romine et al., 2022) using NextGenMap. Use SAMtools for mapping-quality filtering and sorting of BAM files.
 
-5. **Deduplication and overlap clipping:** Use Picard to remove duplicate reads and BamUtil to clip overlapping paired-end reads. Use SAMtools for mapping-quality filtering, sorting and indexing as required by the workflow.
+5. **Deduplication and overlap clipping:** Use Picard to remove duplicate reads and BamUtil to clip overlapping paired-end reads. 
 
 6. **Depth of coverage:** Use SAMtools to estimate read depth from the processed BAM files, followed by R scripts to summarise depth statistics.
 
