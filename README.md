@@ -34,6 +34,10 @@ Example:
 
 Prefixes must match between the two files and be updated as filenames change during processing. Associated sample metadata can be retained, provided the sample identifiers and metadata remain consistent.
 
+## Software environment and execution
+
+Processing scripts are executed as Bash scripts on the HPC server. Miniconda is used to manage software dependencies for the processing workflow. Activate the relevant environment before running scripts and ensure that the required programs are installed. Software versions should be recorded to support reproducibility.
+
 ## Processing workflow
 
 The processing workflow comprises the following steps:
@@ -76,7 +80,9 @@ Raw sequencing reads and large intermediate files (e.g. BAM files) are not distr
 
 ## Software
 
-The workflow uses FastQC, MultiQC, Trimmomatic, fastp, NextGenMap, SAMtools, Picard, BamUtil, Java, and R. Software versions and dependencies should be recorded alongside the scripts or in an accompanying environment information file.
+The workflow uses FastQC, MultiQC, Trimmomatic, fastp, NextGenMap, SAMtools, Picard and BamUtil, with R for summarising depth-of-coverage statistics. Most software was installed using Miniconda, except for Trimmomatic, which was installed directly on the HPC server.
+
+Software versions and references are provided in environment/software_versions.md.
 
 ## Citation
 
@@ -86,6 +92,6 @@ Repository citation: (Add the repository citation or DOI here).
 
 Related pipeline: [Physalia lcWGS pipeline](https://github.com/nt246/physalia-lcwgs/tree/main)
 
-Licence
+## Licence
 
 See the LICENSE file for the terms governing reuse and redistribution of the code.
