@@ -7,11 +7,14 @@ The workflow includes read quality control, adapter and quality trimming, read m
 
 ## Sample lists and metadata tables
 
-The workflow uses two input files:
+The workflow uses three types of input files at different processing stages.
 
-sample_lists/fastq_list_example.txt contains one sample file prefix per line, without a header. Each prefix corresponds to a sample's paired-end FASTQ files and must match the prefix in fastq_table.tsv. The list can be modified to process all samples or a selected subset.
+### FASTQ sample lists and metadata
+
+`sample_lists/fastq_list_example.txt` contains one sample file prefix per line, without a header. Each prefix corresponds to a sample's paired-end FASTQ files and must match the `prefix` column in `fastq_table_example.tsv`. The list can be modified to process all samples or a selected subset.
 
 Example:
+
 ```text
 FL08_22NT3LLT3_TTACTCCACA-GACACCGATG_L005
 FL103_22NT3LLT3_CATTAGTGCG-TGACTACATA_L005
@@ -20,9 +23,10 @@ FL117_22NT3LLT3_ATTCCATAAG-TGCCTGGTGG_L005
 FL124_22NT3LLT3_AGTCAGACGA-ACCAGCGACA_L005
 ```
 
-sample_lists/fastq_table_example.tsv contains tab-separated sample metadata, including the sample prefix (prefix), sequencing lane (lane_number), sequencing library or batch (seq_id), sample identifier (sample_id), population, and sequencing type (data_type; paired-end or single-end). The table includes a header row.
+`sample_lists/fastq_table_example.tsv` contains tab-separated sample metadata, including the sample prefix (`prefix`), sequencing lane (`lane_number`), sequencing library or batch (`seq_id`), sample identifier (`sample_id`), population, and sequencing type (`data_type`; paired-end or single-end). The table includes a header row.
 
 Example:
+
 | prefix | lane_number | seq_id | sample_id | population | data_type |
 |---|---|---|---|---|---|
 | FL08_22NT3LLT3_TTACTCCACA-GACACCGATG_L005 | lane5 | 1 | FL08 | Floreana | pe |
@@ -31,8 +35,21 @@ Example:
 | FL117_22NT3LLT3_ATTCCATAAG-TGCCTGGTGG_L005 | lane5 | 1 | FL117 | Floreana | pe |
 | FL124_22NT3LLT3_AGTCAGACGA-ACCAGCGACA_L005 | lane5 | 1 | FL124 | Floreana | pe |
 
+Prefixes must match between the FASTQ list and metadata table and be updated as filenames change during processing. Examples after Trimmomatic processing are provided in `sample_lists/fastq_list_after_trim_example.txt` and `sample_lists/fastq_table_after_trim_example.txt` for use with fastp. Sample IDs may differ between examples. These files can also be adapted for subsequent processing, including NextGenMap, provided that prefixes remain consistent between the two files and reflect the filenames at each processing stage.
 
-Prefixes must match between the two files and be updated as filenames change during processing. Examples of the sample files after Trimmomatic processing are provided in sample_lists/fastq_list_after_trim_example.txt and sample_lists/fastq_table_after_trim_example.txt for use with fastp. Sample IDs may differ between examples. These files can also be adapted for downstream processing (e.g. NextGenMap), provided that prefixes remain consistent between the two files and reflect the filenames at each processing stage.
+### BAM sample list
+
+`sample_lists/bam_list_example.txt` contains one BAM filename prefix per line, without a header. It is used for downstream processing after NextGenMap, including duplicate removal, overlap clipping, and depth-of-coverage calculations. Prefixes exclude the suffixes added by the scripts, which must match the expected filenames at each processing stage.
+
+Example:
+
+```text
+FL08_Floreana_1_lane5_pe_ngm_minq20_sorted
+FL103_Floreana_1_lane5_pe_ngm_minq20_sorted
+FL113_Floreana_1_lane5_pe_ngm_minq20_sorted
+FL117_Floreana_1_lane5_pe_ngm_minq20_sorted
+FL124_Floreana_1_lane5_pe_ngm_minq20_sorted
+```
 
 ## Software environment and execution
 
@@ -58,9 +75,9 @@ The workflow is adapted from the [Physalia lcWGS pipeline](https://github.com/nt
 
 ## Repository contents
 
-scripts/ — Bash and R scripts for genomic data processing.
+`scripts/` — Bash and R scripts for genomic data processing.
 
-sample_lists/ — Sample lists and tables used to specify samples and their associated metadata.
+`sample_lists/` — Sample lists and tables used to specify samples and their associated metadata.
 
 See the individual scripts for input requirements, output locations, and processing parameters.
 
