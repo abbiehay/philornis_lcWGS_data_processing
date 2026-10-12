@@ -12,11 +12,13 @@ The workflow uses two input files:
 fastq_list.txt contains one sample file prefix per line, without a header. Each prefix corresponds to a sample's paired-end FASTQ files and must match the prefix in fastq_table.tsv. The list can be modified to process all samples or a selected subset.
 
 Example:
+```text
 FL08_22NT3LLT3_TTACTCCACA-GACACCGATG_L005
 FL103_22NT3LLT3_CATTAGTGCG-TGACTACATA_L005
 FL113_22NT3LLT3_ATGGTTGACT-GGCCTGTCCT_L005
 FL117_22NT3LLT3_ATTCCATAAG-TGCCTGGTGG_L005
 FL124_22NT3LLT3_AGTCAGACGA-ACCAGCGACA_L005
+```
 
 fastq_table.tsv contains tab-separated sample metadata, including the sample prefix (prefix), sequencing lane (lane_number), sequencing library or batch (seq_id), sample identifier (sample_id), population, and sequencing type (data_type; paired-end or single-end). The table includes a header row.
 
@@ -36,27 +38,23 @@ Prefixes must match between the two files and be updated as filenames change dur
 
 The processing workflow comprises the following steps:
 
-1. Read quality control
+## Processing workflow
 
-FastQC and MultiQC to assess raw read quality and summarise quality-control reports.
+1. **Initial read quality control:** Use FastQC to assess raw FASTQ files and MultiQC to summarise quality metrics across samples. Examine sequence quality, adapter content, overrepresented sequences and per-sequence GC content.
 
-2. Read trimming
+2. **Adapter and quality trimming:** Use Trimmomatic to remove adapters and low-quality bases. Run FastQC and MultiQC on the trimmed reads to assess trimming effectiveness and identify any remaining adapter contamination or overrepresented sequences.
 
-Trimmomatic for adapter and quality trimming, followed by fastp for poly-G tail removal where required.
+3. **Poly-G tail removal:** Use fastp to remove poly-G tails where required, based on the initial and post-Trimmomatic quality-control results. Fastp can also be used to remove specified overrepresented sequences where necessary. Run FastQC and MultiQC again to assess the final trimmed reads before mapping.
 
-3. Read mapping
+4. **Read mapping:** Map the processed reads to the female *Philornis downsi* reference genome (GCA_019455685.1; Romine et al., 2022) using NextGenMap.
 
-NextGenMap to align reads to the reference genome.
+5. **Deduplication and overlap clipping:** Use Picard to remove duplicate reads and BamUtil to clip overlapping paired-end reads. Use SAMtools for mapping-quality filtering, sorting and indexing as required by the workflow.
 
-4. BAM processing
+6. **Depth of coverage:** Use SAMtools to estimate read depth from the processed BAM files, followed by R scripts to summarise depth statistics.
 
-SAMtools for SAM/BAM conversion, mapping-quality filtering, and sorting; Picard for duplicate removal; and BamUtil for clipping overlapping paired-end reads.
+The workflow is adapted from the [Physalia lcWGS pipeline](https://github.com/nt246/physalia-lcwgs/tree/main), with modifications to software and processing steps. See individual scripts for specific commands, parameters, input requirements and output locations.
 
-5. Depth of coverage
-
-SAMtools to calculate per-position read depth, followed by R scripts to summarise depth statistics.
-
-Repository contents
+## Repository contents
 
 scripts/ — Bash and R scripts for genomic data processing.
 
