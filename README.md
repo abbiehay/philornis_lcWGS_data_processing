@@ -70,7 +70,7 @@ Romine, M. G., Knutie, S. A., Crow, C. M., Vaziri, G. J., Chaves, J. A., Koop, J
 
 ## Data availability
 
-Raw sequencing data are available through the NCBI Sequence Read Archive (SRA) under BioProject PRJNA1468418. BioSample accession numbers are SAMN60281468–SAMN60281636 and SAMN60394944–SAMN60394967.
+Raw sequencing data are available through the NCBI Sequence Read Archive (SRA) under [BioProject PRJNA1468418](https://www.ncbi.nlm.nih.gov/bioproject/1468418). BioSample accession numbers are SAMN60281468–SAMN60281636 and SAMN60394944–SAMN60394967.
 
 Raw sequencing reads and large intermediate files (e.g. BAM files) are not distributed in this repository.
 
