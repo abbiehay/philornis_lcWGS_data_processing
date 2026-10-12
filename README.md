@@ -81,7 +81,7 @@ See the individual scripts for input requirements, output locations, and process
 
 ## Reference genome
 
-Reads were mapped to the female Philornis downsi reference genome (GCA_019455685.1; Romine et al., 2022).
+Reads were mapped to the female *Philornis downsi* reference genome (GCA_019455685.1; Romine et al., 2022).
 
 Reference genome citation:
 
