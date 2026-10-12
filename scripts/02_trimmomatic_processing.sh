@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-SAMPLELIST=/path/to/fastqlist_p5.txt  # Path to a list of prefixes of the raw fastq files. Can be either a subset of column 1 of your sample table, or the whole list if you want to run all at once. Trimmomatic will only run the files in this list.
-SAMPLETABLE=/path/to/fastqtable_p5.tsv  # Path to a sample table where the 1st column is the prefix of the raw fastq files. The 4th column is the sample ID, the 2nd column is the lane number, and the 3rd column is sequencing ID.
+SAMPLELIST=/path/to/fastqlist.txt  # Path to a list of prefixes of the raw fastq files. Can be either a subset of column 1 of your sample table, or the whole list if you want to run all at once. Trimmomatic will only run the files in this list.
+SAMPLETABLE=/path/to/fastqtable.tsv  # Path to a sample table where the 1st column is the prefix of the raw fastq files. The 4th column is the sample ID, the 2nd column is the lane number, and the 3rd column is sequencing ID.
 RAWFASTQDIR=/path/to/raw/ # Path to raw fastq files.
 RAWFASTQSUFFIX1=_R1.fastq.gz # Suffix to raw fastq files, forward reads for paired-end data.
 RAWFASTQSUFFIX2=_R2.fastq.gz # Suffix to raw fastq files, reverse reads for paired-end data.
