@@ -9,7 +9,7 @@ The workflow includes read quality control, adapter and quality trimming, read m
 
 The workflow uses two input files:
 
-fastq_list.txt contains one sample file prefix per line, without a header. Each prefix corresponds to a sample's paired-end FASTQ files and must match the prefix in fastq_table.tsv. The list can be modified to process all samples or a selected subset.
+sample_lists/fastq_list_example.txt contains one sample file prefix per line, without a header. Each prefix corresponds to a sample's paired-end FASTQ files and must match the prefix in fastq_table.tsv. The list can be modified to process all samples or a selected subset.
 
 Example:
 ```text
@@ -20,7 +20,7 @@ FL117_22NT3LLT3_ATTCCATAAG-TGCCTGGTGG_L005
 FL124_22NT3LLT3_AGTCAGACGA-ACCAGCGACA_L005
 ```
 
-fastq_table.tsv contains tab-separated sample metadata, including the sample prefix (prefix), sequencing lane (lane_number), sequencing library or batch (seq_id), sample identifier (sample_id), population, and sequencing type (data_type; paired-end or single-end). The table includes a header row.
+sample_lists/fastq_table_example.tsv contains tab-separated sample metadata, including the sample prefix (prefix), sequencing lane (lane_number), sequencing library or batch (seq_id), sample identifier (sample_id), population, and sequencing type (data_type; paired-end or single-end). The table includes a header row.
 
 Example:
 | prefix | lane_number | seq_id | sample_id | population | data_type |
@@ -32,7 +32,7 @@ Example:
 | FL124_22NT3LLT3_AGTCAGACGA-ACCAGCGACA_L005 | lane5 | 1 | FL124 | Floreana | pe |
 
 
-Prefixes must match between the two files and be updated as filenames change during processing. Associated sample metadata can be retained, provided the sample identifiers and metadata remain consistent.
+Prefixes must match between the two files and be updated as filenames change during processing. Examples of the sample files after Trimmomatic processing are provided in sample_lists/fastq_list_after_trim_example.txt and sample_lists/fastq_table_after_trim_example.txt for use with fastp. Sample IDs may differ between examples. These files can also be adapted for downstream processing (e.g. NextGenMap), provided that prefixes remain consistent between the two files and reflect the filenames at each processing stage.
 
 ## Software environment and execution
 
