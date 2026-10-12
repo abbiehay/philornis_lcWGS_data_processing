@@ -75,6 +75,8 @@ The workflow is adapted from the [Physalia lcWGS pipeline](https://github.com/nt
 
 `sample_lists/` — Sample lists and tables used to specify samples and their associated metadata.
 
+`environment/` — Software version information and references for the processing workflow.
+
 See the individual scripts for input requirements, output locations, and processing parameters.
 
 ## Reference genome
