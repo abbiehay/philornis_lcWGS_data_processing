@@ -34,11 +34,9 @@ Example:
 
 Prefixes must match between the two files and be updated as filenames change during processing. Associated sample metadata can be retained, provided the sample identifiers and metadata remain consistent.
 
-## Workflow
+## Processing workflow
 
 The processing workflow comprises the following steps:
-
-## Processing workflow
 
 1. **Initial read quality control:** Use FastQC to assess raw FASTQ files and MultiQC to summarise quality metrics across samples. Examine sequence quality, adapter content, overrepresented sequences and per-sequence GC content.
 
