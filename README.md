@@ -51,10 +51,6 @@ FL117_Floreana_1_lane5_pe_ngm_minq20_sorted
 FL124_Floreana_1_lane5_pe_ngm_minq20_sorted
 ```
 
-## Software environment and execution
-
-Processing scripts are executed as Bash scripts on the HPC server. Miniconda is used to manage software dependencies for the processing workflow. Activate the relevant environment before running scripts and ensure that the required programs are installed. Software versions should be recorded to support reproducibility.
-
 ## Processing workflow
 
 The processing workflow comprises the following steps:
@@ -95,11 +91,11 @@ Raw sequencing data are available through the NCBI Sequence Read Archive (SRA) u
 
 Raw sequencing reads and large intermediate files (e.g. BAM files) are not distributed in this repository.
 
-## Software
+## Software environment and execution
 
-The workflow uses FastQC, MultiQC, Trimmomatic, fastp, NextGenMap, SAMtools, Picard and BamUtil, with R for summarising depth-of-coverage statistics. Most software was installed using Miniconda, except for Trimmomatic, which was installed directly on the HPC server.
+Processing scripts are executed as Bash scripts on the HPC server. Most software was installed using Miniconda, except for Trimmomatic, which was installed directly on the server. Software dependencies are managed via Miniconda.
 
-Software versions and references are provided in environment/software_versions.md.
+The workflow uses FastQC, MultiQC, Trimmomatic, fastp, NextGenMap, SAMtools, Picard and BamUtil, with R for summarising depth-of-coverage statistics. Software versions and references are provided in `environment/software_versions.md` to support reproducibility.
 
 ## Citation
 
