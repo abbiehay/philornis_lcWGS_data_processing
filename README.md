@@ -99,9 +99,7 @@ Processing scripts are executed as Bash scripts on the HPC server. Most software
 
 The workflow uses FastQC, MultiQC, Trimmomatic, fastp, NextGenMap, SAMtools, Picard and BamUtil, with R for summarising depth-of-coverage statistics. Software versions and references are provided in `environment/software_versions.md` to support reproducibility.
 
-## Citation
-
-If you use these scripts, please cite this repository and the associated publication where appropriate.
+## Credits
 
 Related pipeline: [Physalia lcWGS pipeline](https://github.com/nt246/physalia-lcwgs/tree/main)
 
