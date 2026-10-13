@@ -1,5 +1,7 @@
 # philornis_lcWGS_data_processing
 
+[![DOI](https://zenodo.org/badge/1414881783.svg)](https://doi.org/10.5281/zenodo.23332239)
+
 ## Overview
 This repository contains scripts for processing low-coverage whole-genome sequencing (lcWGS) data from *Philornis downsi*, adapted from the [Physalia lcWGS pipeline](https://github.com/nt246/physalia-lcwgs/tree/main), with modifications to accommodate the sequencing data and processing requirements of this study.
 
