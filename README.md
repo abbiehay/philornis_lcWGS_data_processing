@@ -103,8 +103,6 @@ The workflow uses FastQC, MultiQC, Trimmomatic, fastp, NextGenMap, SAMtools, Pic
 
 If you use these scripts, please cite this repository and the associated publication where appropriate.
 
-Repository citation: (Add the repository citation or DOI here).
-
 Related pipeline: [Physalia lcWGS pipeline](https://github.com/nt246/physalia-lcwgs/tree/main)
 
 ## Licence
